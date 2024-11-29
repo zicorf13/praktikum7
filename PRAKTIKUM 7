@@ -1,0 +1,94 @@
+1. Struktur Program*
+Program dibuat untuk mengelola daftar nilai mahasiswa dengan fitur: *Tambah Data, **Lihat Data, **Ubah Data, **Hapus Data, dan **Cari Data. Data disimpan menggunakan struktur **Dictionary*, di mana setiap entri memiliki format seperti:
+
+python
+data_mahasiswa = {
+    "NIM1": {"Nama": "Nama1", "Tugas": 90, "UTS": 85, "UAS": 80, "Akhir": 84.5},
+    "NIM2": {"Nama": "Nama2", "Tugas": 88, "UTS": 87, "UAS": 89, "Akhir": 88.2}
+}
+
+2. Fungsi dalam Program
+
+a. tambah_data()
+Fungsi ini digunakan untuk menambahkan data mahasiswa. Input berupa:
+- NIM
+- Nama
+- Nilai Tugas
+- Nilai UTS
+- Nilai UAS
+
+Nilai akhir dihitung dengan rumus:
+\[
+\text{Nilai Akhir} = (\text{Tugas} \times 30\%) + (\text{UTS} \times 35\%) + (\text{UAS} \times 35\%)
+\]
+Data disimpan ke dalam dictionary data_mahasiswa.
+
+b. lihat_data()
+Fungsi ini menampilkan seluruh data mahasiswa dalam format tabel. Jika tidak ada data, program akan menampilkan pesan *"Tidak ada data."*.
+
+Output berupa tabel:
+
+No   NIM      Nama         Tugas  UTS    UAS    Akhir
+1   35231885   zico         90     80     85     85.25
+
+c. ubah_data()
+Fungsi ini mengubah data mahasiswa berdasarkan NIM. Alurnya:
+1. Cari NIM dalam dictionary.
+2. Jika ditemukan, input data baru (Nama, Tugas, UTS, UAS).
+3. Hitung nilai akhir dengan rumus yang sama.
+4. Perbarui data di dictionary.
+5. Jika tidak ditemukan, tampilkan pesan *"Data tidak ditemukan.
+
+d. hapus_data()
+Fungsi ini menghapus data mahasiswa berdasarkan NIM. Alurnya:
+1. Cari NIM dalam dictionary.
+2. Jika ditemukan, hapus data menggunakan del.
+3. Jika tidak ditemukan, tampilkan pesan *"Data tidak ditemukan."*
+
+e. cari_data()
+Fungsi ini mencari data mahasiswa berdasarkan NIM dan menampilkan detail mahasiswa jika ditemukan. Jika tidak, akan muncul pesan *"Data tidak ditemukan."*
+
+---
+
+3. Perulangan Menu
+Bagian utama program adalah perulangan *while True*, yang berfungsi menampilkan menu utama hingga pengguna memilih untuk keluar (opsi K).
+
+Pilihan menu:
+- (L) Lihat Data: Memanggil fungsi lihat_data().
+- (T) Tambah Data: Memanggil fungsi tambah_data().
+- (U) Ubah Data: Memanggil fungsi ubah_data().
+- (H) Hapus Data: Memanggil fungsi hapus_data().
+- (C) Cari Data: Memanggil fungsi cari_data().
+- (K) Keluar: Mengakhiri program dengan break.
+
+Jika input tidak valid, program akan meminta pengguna untuk mencoba lagi.
+
+---
+
+4. Logika Nilai Akhir
+Nilai akhir dihitung berdasarkan persentase komponen:
+- Tugas: 30%
+- UTS: 35%
+- UAS: 35%
+
+Contoh:
+Jika mahasiswa memiliki nilai:
+- Tugas = 90
+- UTS = 85
+- UAS = 80
+
+Maka:
+\[
+\text{Nilai Akhir} = (90 \times 0.3) + (85 \times 0.35) + (80 \times 0.35) = 85.25
+\]
+
+---
+
+5. Kelebihan Program
+- Interaktif: Pengguna dapat memilih opsi dari menu.
+- Modular: Fungsi terpisah untuk setiap fitur.
+- Dinamis: Data dapat ditambah, diubah, dihapus, atau dicari.
+
+6. Kekurangan
+- Belum ada validasi input (misalnya, memastikan nilai berupa angka).
+- Tidak ada penyimpanan permanen; data akan hilang setelah program selesai dijalankan.
